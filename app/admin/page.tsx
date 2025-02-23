@@ -14,9 +14,9 @@ const supabase = createClient(
 
 export default function AdminPage() {
   const router = useRouter();
-  const [user, setUser] = useState<any>(null);
+  //   const [, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [isAdmin, setIsAdmin] = useState(false);
+  //   const [, setIsAdmin] = useState(false);
 
   // Fetch user and check role
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function AdminPage() {
         return;
       }
 
-      setUser(data?.user);
+      //   setUser(data?.user);
 
       // Fetch user role from Supabase (assuming roles are stored in 'profiles' table)
       const { data: profile } = await supabase
@@ -37,7 +37,7 @@ export default function AdminPage() {
         .single();
 
       if (profile?.role === "admin") {
-        setIsAdmin(true);
+        // setIsAdmin(true);
       } else {
         router.push("/dashboard"); // Redirect non-admin users
       }
