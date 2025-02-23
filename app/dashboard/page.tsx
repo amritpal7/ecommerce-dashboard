@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { createClient } from "@supabase/supabase-js";
+import { createClient, User } from "@supabase/supabase-js";
 import { Button } from "@/components/ui/button";
 
 const supabase = createClient(
@@ -12,7 +12,7 @@ const supabase = createClient(
 
 export default function DashboardPage() {
   const router = useRouter();
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
